@@ -31,9 +31,9 @@ import (
 	"github.com/flike/kingshard/web"
 )
 
-var configFile *string = flag.String("config", "/etc/ks.yaml", "kingshard config file")
-var logLevel *string = flag.String("log-level", "", "log level [debug|info|warn|error], default error")
-var version *bool = flag.Bool("v", false, "the version of kingshard")
+var configFile = flag.String("config", "./etc/ks.yaml", "kingshard config file")
+var logLevel = flag.String("log-level", "", "log level [debug|info|warn|error], default error")
+var version = flag.Bool("v", false, "the version of kingshard")
 
 const (
 	sqlLogName = "sql.log"

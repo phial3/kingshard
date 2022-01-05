@@ -17,7 +17,7 @@ package config
 import (
 	"io/ioutil"
 
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 )
 
 //用于通过api保存配置
@@ -25,9 +25,9 @@ var configFileName string
 
 //整个config文件对应的结构
 type Config struct {
-	Addr     		string       	`yaml:"addr"`
-	PrometheusAddr 	string		 	`yaml:"prometheus_addr"`
-	UserList 		[]UserConfig 	`yaml:"user_list"`
+	Addr           string       `yaml:"addr"`
+	PrometheusAddr string       `yaml:"prometheus_addr"`
+	UserList       []UserConfig `yaml:"user_list"`
 
 	WebAddr     string `yaml:"web_addr"`
 	WebUser     string `yaml:"web_user"`

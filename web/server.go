@@ -18,9 +18,8 @@ import (
 	"github.com/flike/kingshard/core/golog"
 	"github.com/flike/kingshard/proxy/server"
 	"github.com/labstack/echo"
-	"github.com/labstack/gommon/log"
-	//"github.com/labstack/echo/engine/standard"
 	mw "github.com/labstack/echo/middleware"
+	"github.com/labstack/gommon/log"
 )
 
 type ApiServer struct {
@@ -29,7 +28,7 @@ type ApiServer struct {
 	webAddr     string
 	webUser     string
 	webPassword string
-	web *echo.Echo
+	web         *echo.Echo
 }
 
 func NewApiServer(cfg *config.Config, srv *server.Server) (*ApiServer, error) {
@@ -107,9 +106,9 @@ func (s *ApiServer) RegisterURL() {
 	s.web.PUT("/api/v1/proxy/config/save", s.SaveProxyConfig)
 }
 
-func (s *ApiServer) CheckAuth(username, password string,ctx echo.Context) (bool,error) {
+func (s *ApiServer) CheckAuth(username, password string, ctx echo.Context) (bool, error) {
 	if username == s.webUser && password == s.webPassword {
-		return true,nil
+		return true, nil
 	}
-	return false,nil
+	return false, nil
 }
